@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        .slider {
+            display: inline-flex;
+            overflow: scroll;
+            /* scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; */
+            width: 500vw;
+            /* height: 300px; */
+        }
+        .item {
+            /* flex: 0 0 auto; */
+            width: 90vw;
+            height: 50vw;
+            /* scroll-snap-align: start; */
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="item" style="background-color: aqua;"></div>
+        <div class="item" style="background-color: coral;"></div>
+        <div class="item" style="background-color: lightblue;"></div>
+        <div class="item" style="background-color: lightgreen;"></div>
+        <div class="item" style="background-color: lightpink;"></div>
+    </div>
+</body>
+</html>
