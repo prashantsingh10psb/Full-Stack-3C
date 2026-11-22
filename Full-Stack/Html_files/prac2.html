@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TilePress</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVBAR
+           ========================= */
+
+        .navbar {
+            height: 70px;
+            padding: 0 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background-color: white;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d62828;
+        }
+
+        .search {
+            width: 350px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-icons span {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           OUTER GALLERY
+           CSS GRID ONLY
+           ========================= */
+
+        .gallery {
+            padding: 20px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fill, minmax(210px, 1fr));
+
+            grid-auto-rows: 8px;
+
+            gap: 14px;
+        }
+
+
+        /* =========================
+           CARD
+           ========================= */
+
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+
+            background-color: white;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* Image / colored area */
+
+        .image {
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+        }
+
+
+        /* =========================
+           CARD CONTENT
+           FLEXBOX
+           ========================= */
+
+        .content {
+            padding: 12px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            font-size: 12px;
+            color: #777;
+        }
+
+        .profile {
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            background-color: #ddd;
+        }
+
+
+        /* =========================
+           DIFFERENT TILE HEIGHTS
+           ========================= */
+
+        .card1 {
+            grid-row: span 70;
+        }
+
+        .card2 {
+            grid-row: span 45;
+        }
+
+        .card3 {
+            grid-row: span 80;
+        }
+
+        .card4 {
+            grid-row: span 55;
+        }
+
+        .card5 {
+            grid-row: span 65;
+        }
+
+        .card6 {
+            grid-row: span 35;
+        }
+
+        .card7 {
+            grid-row: span 60;
+        }
+
+        .card8 {
+            grid-row: span 45;
+        }
+
+        .card9 {
+            grid-row: span 70;
+        }
+
+        .card10 {
+            grid-row: span 40;
+        }
+
+
+        /* =========================
+           TILE COLORS
+           ========================= */
+
+        .red {
+            background: linear-gradient(
+                180deg,
+                #e76f51,
+                #d94c36
+            );
+        }
+
+        .blue {
+            background: linear-gradient(
+                180deg,
+                #18b6c9,
+                #0095a8
+            );
+        }
+
+        .yellow {
+            background: linear-gradient(
+                180deg,
+                #f4c542,
+                #f09d27
+            );
+        }
+
+        .purple {
+            background: linear-gradient(
+                180deg,
+                #b8a4e8,
+                #8e7cc3
+            );
+        }
+
+        .green {
+            background: linear-gradient(
+                180deg,
+                #55d6a3,
+                #22b783
+            );
+        }
+
+        .pink {
+            background: linear-gradient(
+                180deg,
+                #df5fc7,
+                #c744b0
+            );
+        }
+
+        .orange {
+            background: linear-gradient(
+                180deg,
+                #f5b47b,
+                #e9925a
+            );
+        }
+
+        .lightblue {
+            background: linear-gradient(
+                180deg,
+                #9fc4e8,
+                #7caad6
+            );
+        }
+
+
+        /* =========================
+           RESPONSIVE
+           ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .search {
+                width: 180px;
+            }
+
+            .gallery {
+                padding: 12px;
+                grid-template-columns:
+                    repeat(auto-fill, minmax(170px, 1fr));
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+         ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            TilePress
+        </div>
+
+
+        <input
+            type="text"
+            class="search"
+            placeholder="Search for ideas"
+        >
+
+
+        <div class="nav-icons">
+
+            <span>🔔</span>
+
+            <span>▱</span>
+
+            <span>⚪</span>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         GALLERY
+         ========================= -->
+
+    <main class="gallery">
+
+
+        <!-- CARD 1 -->
+
+        <article class="card card1">
+
+            <div class="image red"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Autumn cabin mood board
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@morgan</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 2 -->
+
+        <article class="card card2">
+
+            <div class="image blue"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Minimal desk setup
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@gracelee</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 3 -->
+
+        <article class="card card3">
+
+            <div class="image yellow"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Golden hour inspiration
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@alex</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 4 -->
+
+        <article class="card card4">
+
+            <div class="image purple"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Lavender field wallpaper
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@skyler</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 5 -->
+
+        <article class="card card5">
+
+            <div class="image green"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Weekend hike essentials
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@lena</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 6 -->
+
+        <article class="card card6">
+
+            <div class="image lightblue"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Calm blue interiors
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@james</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 7 -->
+
+        <article class="card card7">
+
+            <div class="image pink"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Creative workspace
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@sarah</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 8 -->
+
+        <article class="card card8">
+
+            <div class="image orange"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Soft summer colors
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@mike</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 9 -->
+
+        <article class="card card9">
+
+            <div class="image blue"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Ocean photography
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@emma</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CARD 10 -->
+
+        <article class="card card10">
+
+            <div class="image green"></div>
+
+            <div class="content">
+
+                <h3 class="title">
+                    Nature inspiration
+                </h3>
+
+                <div class="author">
+
+                    <div class="profile"></div>
+
+                    <span>@dan</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+</body>
+</html>
